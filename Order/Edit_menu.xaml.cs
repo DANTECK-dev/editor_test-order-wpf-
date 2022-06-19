@@ -44,6 +44,15 @@ namespace Order
             this.editing_text = editing_text;
             label_Edit_Text.Content = editing_text;
             this.Type = Type;
+            switch (this.Type)
+            {
+                case 0: label_Edit_Title.Content = "дисциплины"; break;
+                case 1: label_Edit_Title.Content = "темы"; break;
+                case 2: label_Edit_Title.Content = "вопроса"; break;
+                case 3: label_Edit_Title.Content = "ответа"; break;
+
+            }
+            
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +72,9 @@ namespace Order
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+
+            MessageBox.Show("Изменено " + editing_text + "\nна " + str);
+
             Editor_tests win = new Editor_tests();
             win.Show();
             this.Close();
